@@ -19,7 +19,6 @@ venv/
 *.lock
 
 # Data 
-data/
 *.csv
 *.tsv
 *.xls
@@ -27,7 +26,6 @@ data/
 *.parquet
 
 # Models 
-models/
 *.pkl
 *.h5
 *.pt
