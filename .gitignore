@@ -1,0 +1,43 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Virtual environments
+.env/
+.venv/
+env/
+venv/
+*.egg-info/
+*.egg
+
+# Conda environment 
+*.conda
+*.lock
+
+# Data 
+data/
+*.csv
+*.tsv
+*.xls
+*.xlsx
+*.parquet
+
+# Models 
+models/
+*.pkl
+*.h5
+*.pt
+*.pth
+
+# Logs
+*.log
+
+# IDE 
+.vscode/
+.idea/
+.DS_Store
+
