@@ -1,0 +1,12 @@
+name: iris-env
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy
+  - pandas
+  - scikit-learn
+  - pip
+  - pip:
+      - flask
+      - gunicorn
