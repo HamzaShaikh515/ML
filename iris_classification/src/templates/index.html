@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iris Classifier</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    input {
+      margin: 5px;
+      padding: 8px;
+      width: 80px;
+    }
+    button {
+      padding: 10px 15px;
+      margin-top: 15px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <h2>Iris Flower Classifier 🌸</h2>
+  <p>Enter the 4 features below:</p>
+
+  <input id="f1" type="number" step="0.1" placeholder="Sepal length">
+  <input id="f2" type="number" step="0.1" placeholder="Sepal width">
+  <input id="f3" type="number" step="0.1" placeholder="Petal length">
+  <input id="f4" type="number" step="0.1" placeholder="Petal width">
+  <br>
+  <button onclick="predict()">Predict</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    async function predict() {
+      const features = [
+        parseFloat(document.getElementById("f1").value),
+        parseFloat(document.getElementById("f2").value),
+        parseFloat(document.getElementById("f3").value),
+        parseFloat(document.getElementById("f4").value)
+      ];
+
+      try {
+        const response = await fetch("/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ features })
+        });
+
+        const data = await response.json();
+        document.getElementById("result").innerText =
+          "Prediction: " + data.prediction;
+      } catch (err) {
+        document.getElementById("result").innerText =
+          "Error: " + err.message;
+      }
+    }
+  </script>
+</body>
+</html>
